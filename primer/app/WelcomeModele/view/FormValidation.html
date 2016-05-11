@@ -1,14 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--           se asocia el modulo a la vista-->
+<html lang="en" ng-app="LoginFormModule">
 <head>
     <meta charset="UTF-8">
     <title>Ejercicio 1</title>
-    <!--contwnido etatico, hoja de estilo requerido-->
+    <!--contenido estatico, hoja de estilo requerido-->
     <link href="../../bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="../../share/main.css" rel="stylesheet">
 </head>
 <body>
+<!-- -->
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand"
+              href="/">
+                Primer Form BootStrap + AngularJs.
+            </a>
+        </div>
+    </div>
+</nav>
+<!--Contenedor principal que englobara al form-->
+<div class="container main-content" ng-controller="LoginFormController">
+    <form name="theForm" ng-submit="onSubmit();">
+        <!--Input  text nro 1-->
+        <div class="form-group" >
+            <label for="name">Tu Nombre</label>
+            <input type="text"
+                   class="form-control"
+                   id="name"
+                   ng-model="formModel.name"
+                   >
+        </div>
+
+        <div class="form-group" >
+            <label for="name">Password</label>
+            <input type="password"
+                   class="form-control"
+                   id="password"
+                   ng-model="formModel.password"
+            >
+        </div>
+
+        <div class="form-group" >
+            <label for="name">Email</label>
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   ng-model="formModel.email"
+            >
+        </div>
+        <!--boton que gatilla un submit-->
+        <div class="form-group">
+            <button class="btn btn-primary"
+                    type="submit"> Registrar
+
+            </button>
+
+        </div>
+
+    </form>
+
+    <pre> {{formModel.name | json}} </pre>
+    <pre> {{formModel.password | json}} </pre>
+    <pre> {{formModel.email | json}} </pre>
+
+</div>
 
 
+
+<!-- archivos requeridos para el proyecto de angularJs-->
+<script src="../../bower_components/angular/angular.min.js"></script>
+<script src="../controller/FormValidationController.js"></script>
 </body>
 </html>
